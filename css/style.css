@@ -1,0 +1,113 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.shadow-sm {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 100%;
+    width: 95%;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+.filter {
+    max-width: 155px;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    max-width: 150px;
+    word-wrap: break-word; /* Ensures long words are broken into the next line */
+    white-space: normal; /* Allows text to wrap */
+}
+
+.budget-list-container {
+    max-width: 100%; /* Ensure the table stays within the container */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.btn {
+    transition: background-color 0.3s ease;
+}
+
+/* .btn:hover {
+    background-color: #0056b3;
+} */
+
+.contentTitle {
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: center;
+}
+
+label {
+    font-family: cursive;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: center;
+}
+
+.totalAmount {
+    margin-top: 50px;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+}
+
+.modal-header {
+    background-color: #35CB6A;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-body {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+    background-color: #f8f9fa;
+}
+
+.btn-secondary {
+    background-color: red;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: red;
+    border-color: #6c757d;
+}
+
+.modal-dialog {
+    max-width: 500px;
+}
