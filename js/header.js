@@ -6,7 +6,7 @@ const images = [
 // Function to create a new falling image
 function createFallingImage() {
     const img = document.createElement('img');
-    img.src = './images/' + images[Math.floor(Math.random() * images.length)];
+    img.src = '../images/' + images[Math.floor(Math.random() * images.length)];
     img.classList.add('rain-image');
     img.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
     img.style.animationDuration = Math.random() * 3 + 6 + 's'; // Random speed
