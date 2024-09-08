@@ -11,23 +11,19 @@
     <div class="container mt-5">
         <h1 class="mb-4 contentTitle">MONTHLY BUDGET BREAKDOWN</h1>
 
-        <!-- Button to open the modal -->
-        <!-- <div class="mb-3 d-flex justify-content-center"> -->
-            <button type="button" class="btn addNewBudget" data-bs-toggle="modal" data-bs-target="#budgetModal">
-                Add New Budget
-            </button>
-        <!-- </div> -->
+        <!-- Button to open the Add Budget modal -->
+        <button type="button" class="btn addNewBudget" data-bs-toggle="modal" data-bs-target="#budgetModal">
+            Add New Budget
+        </button>
 
         <!-- Budget List -->
         <div class="budget-list-container shadow p-4 mt-4" style="border-radius: 8px; background-color: white;">
             <!-- Category Header -->
-            <div id="budgetList">
-                <!-- Budget items will be grouped by category here -->
-            </div>
+            <div id="budgetList"></div>
         </div>
     </div>
 
-    <!-- Modal for Budget Form -->
+    <!-- Modal for Adding a Budget -->
     <div class="modal fade" id="budgetModal" tabindex="-1" aria-labelledby="budgetModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -36,8 +32,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Budget Form (moved into modal) -->
                     <form id="budgetForm">
+                        <!-- Add Budget Form fields -->
                         <div class="mb-3 categories">
                             <label for="category" class="form-label">Category</label>
                             <select id="category" class="form-select" required>
@@ -59,6 +55,44 @@
                             <input type="date" id="inputDate" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Add Budget</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Editing a Budget -->
+    <div class="modal fade" id="editBudgetModal" tabindex="-1" aria-labelledby="editBudgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editBudgetModalLabel">Edit Budget</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editBudgetForm">
+                        <!-- Edit Budget Form fields -->
+                        <div class="mb-3">
+                            <label for="editCategory" class="form-label">Category</label>
+                            <select id="editCategory" class="form-select" required>
+                                <option value="FIXED EXPENSES (DUES)">FIXED EXPENSES (DUES)</option>
+                                <option value="VARIABLE EXPENSES">VARIABLE EXPENSES</option>
+                                <option value="PAYABLES">PAYABLES</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDescription" class="form-label">Description</label>
+                            <input type="text" id="editDescription" class="form-control" placeholder="Enter description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAmount" class="form-label">Amount</label>
+                            <input type="number" id="editAmount" class="form-control" placeholder="Enter amount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editInputDate" class="form-label">Due Date</label>
+                            <input type="date" id="editInputDate" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Budget</button>
                     </form>
                 </div>
             </div>

@@ -152,15 +152,40 @@ function updateAmountToPay(index, value) {
 
 function editBudget(index) {
     const budget = budgets[index];
-    document.getElementById('description').value = budget.description;
-    document.getElementById('category').value = budget.category;
-    document.getElementById('amount').value = budget.amount;
-    document.getElementById('amountToPay').value = budget.amountToPay || 0;
-    inputDateField.value = budget.inputDate;
+    document.getElementById('editDescription').value = budget.description;
+    document.getElementById('editCategory').value = budget.category;
+    document.getElementById('editAmount').value = budget.amount;
+    document.getElementById('editInputDate').value = budget.inputDate;
 
     editIndex = index;
-    updateButtonLabel('Update Budget');
+    
+    var editModal = new bootstrap.Modal(document.getElementById('editBudgetModal'));
+    editModal.show();
 }
+
+document.getElementById('editBudgetForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const description = capitalizeWords(document.getElementById('editDescription').value);
+    const category = document.getElementById('editCategory').value;
+    const amount = parseFloat(document.getElementById('editAmount').value);
+    const inputDate = document.getElementById('editInputDate').value;
+
+    budgets[editIndex].description = description;
+    budgets[editIndex].category = category;
+    budgets[editIndex].amount = amount;
+    budgets[editIndex].inputDate = inputDate;
+    
+    showModal('Budget updated successfully!');
+    
+    saveBudgets();
+    renderTable();
+
+    var editModal = bootstrap.Modal.getInstance(document.getElementById('editBudgetModal'));
+    editModal.hide();
+
+    editIndex = null;
+});
 
 function cancelEdit() {
     editIndex = null;
