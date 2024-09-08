@@ -1,171 +1,184 @@
-body {
-    background-color: #f8f9fa;
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.shadow-sm {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #f4f4f4;
+    margin-top: -80px;
+    text-align: center;
+    font-family: cursive;
+    font-style: oblique;
+    font-weight: bold;
+    position: relative;
+    height: 200px;
+    font-size: 3rem;
+}
+
+.rain-image {
+    position: absolute;
+    width: 150px; /* Adjust size as needed */
+    animation: fall 8s linear infinite; /* Fall animation */
+    opacity: 0.8; /* Slight transparency */
+}
+
+@keyframes fall {
+    0% {
+        top: -100px; /* Start above the header */
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%; /* End at the bottom of the header */
+        opacity: 0;
+    }
 }
 
 .container {
-    max-width: 100%;
-    width: 95%;
+    display: flex;
+    flex: 1;
 }
 
-.p-4 {
-    padding: 1.5rem;
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    height: 100%;
+    flex: 0 0 200px; /* Fixed width for nav */
+    display: flex;
+    flex-direction: column;
 }
 
-h2 {
-    text-align: center;
-    color: white;
-    background-color: #DB3D3D;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.addNewBudget{
-    background-color: #694949;
-    color: white;
-    font-weight: bold;
+nav ul li {
+    margin: 0.5rem 0; /* Adjust spacing as needed */
 }
 
-.filter {
-    max-width: 155px;
-    margin-left: auto;
+nav ul li a {
+    display: block; /* Make the entire link area clickable */
+    padding: 10px 20px; /* Adjust padding for button-like appearance */
+    background-color: #FBD5AB; /* Button background color */
+    color: black; /* Text color for contrast */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+nav ul li a:hover {
+    background-color: #f9bfb1; /* Slightly darker background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+}
+
+nav ul li a:active {
+    background-color: #e9a89c; /* Even darker background on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect on click */
+}
+
+/* Style for the reminder box */
+.reminder-box {
+    background-color: #FBD5AB;
+    padding: 1rem;
+    margin-top: 5rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.reminder-box h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.reminder-box textarea {
+    width: 100%;
+    height: 350px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #E6E6E6;
+    color: black;
+    font-size: 20px;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #FBD5AB;
+}
+
+.charts-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.table tfoot td {
-    font-weight: bold;
-    border-top: 2px solid #dee2e6;
-    background-color: #f8f9fa;
-}
-
-.text-end {
-    text-align: right;
-}
-
-/* Ensure the input fields match the table layout */
-table input[type="number"] {
-    width: 100%; /* Make input fill the width of the cell */
-    height: 50px; /* Make input fill the height of the cell */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    padding: 0.25rem; /* Adjust padding as needed */
-    border: none; /* Match border color with the rest of the table */
-    border-radius: 0.25rem; /* Rounded corners to match table style */
-    font-size: 1rem; /* Adjust font size to match other text in the table */
-    text-align: center;
-}
-
-table input[type="number"]:focus {
-    outline: none; /* Remove the default focus outline */
-    border: none; /* Ensure no border on focus */
-}
-
-/* Ensure table has consistent styling */
-.table {
-    width: 100%; /* Ensure table uses full available width */
-    border-collapse: collapse; /* Collapse borders between cells */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-tfoot td.text-center {
-    text-align: center;
-}
-
-/* Ensure table input fields fit well within their cells */
-.budget-list-container table {
-    width: 100%; /* Ensure table fits within the container */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-}
-
-.filter-container {
+.saleChart, .budgetChart {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    width: 50%;
 }
 
-.table th {
-    background-color: #694949;
-    color: white;
+#sale-summary-pie-chart, #budget-summary-pie-chart {
+    width: 300px;
+    margin: auto;
 }
 
-.table th, .table td {
-    text-align: center;
-    vertical-align: middle;
-    max-width: 150px;
-    word-wrap: break-word; /* Ensures long words are broken into the next line */
-    white-space: normal; /* Allows text to wrap */
-}
-
-.budget-list-container {
-    max-width: 100%; /* Ensure the table stays within the container */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-}
-
-.btn {
-    transition: background-color 0.3s ease;
-}
-
-/* .btn:hover {
-    background-color: #0056b3;
-} */
-
-.contentTitle {
-    font-family: cursive;
-    font-size: 40px;
-    font-weight: bold;
-    font-style: oblique;
-    text-align: center;
-}
-
-label {
-    font-family: cursive;
-    font-size: 15px;
-    font-weight: bold;
-    font-style: oblique;
-    text-align: center;
-}
-
-.totalAmount {
+.monthlyChart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
+    margin-bottom: 25px;
+    padding: 1rem;
 }
 
-.modal-content {
-    border-radius: 0.5rem;
-    border: 1px solid #dee2e6;
+#monthly-summary-bar-chart {
+    display: inline;
+    width: 500px;
+    margin: auto;
 }
 
-.modal-header {
-    background-color: #35CB6A;
+.chart-container {
+    height: 300px;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+    width: 80%;
+    max-width: 600px; /* Restrict width for better layout */
+}
+
+.notes {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+}
+
+footer {
+    background-color: #333;
     color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-.modal-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.modal-body {
-    font-size: 1rem;
-    color: #495057;
-}
-
-.modal-footer {
-    border-top: 1px solid #ddd;
-    background-color: #f8f9fa;
-}
-
-.btn-secondary {
-    background-color: red;
-    border-color: #6c757d;
-}
-
-.btn-secondary:hover {
-    background-color: red;
-    border-color: #6c757d;
-}
-
-.modal-dialog {
-    max-width: 500px;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    width: 100%;
+    bottom: 0;
 }

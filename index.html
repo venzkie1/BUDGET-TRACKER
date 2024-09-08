@@ -3,121 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>BUDGET BREAKDOWN</title>
+    <title>Financial Tracker</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4 contentTitle">MONTHLY BUDGET BREAKDOWN</h1>
+    <header>
+        <h1 class="headerTitle">FINANCIAL TRACKER</h1>
+    </header>
 
-        <!-- Button to open the Add Budget modal -->
-        <button type="button" class="btn addNewBudget" data-bs-toggle="modal" data-bs-target="#budgetModal">
-            Add New Budget
-        </button>
-
-        <!-- Budget List -->
-        <div class="budget-list-container shadow p-4 mt-4" style="border-radius: 8px; background-color: white;">
-            <!-- Category Header -->
-            <div id="budgetList"></div>
-        </div>
-    </div>
-
-    <!-- Modal for Adding a Budget -->
-    <div class="modal fade" id="budgetModal" tabindex="-1" aria-labelledby="budgetModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="budgetModalLabel">Add Budget</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="budgetForm">
-                        <!-- Add Budget Form fields -->
-                        <div class="mb-3 categories">
-                            <label for="category" class="form-label">Category</label>
-                            <select id="category" class="form-select" required>
-                                <option value="FIXED EXPENSES (DUES)">FIXED EXPENSES (DUES)</option>
-                                <option value="VARIABLE EXPENSES">VARIABLE EXPENSES</option>
-                                <option value="PAYABLES">PAYABLES</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <input type="text" id="description" class="form-control" placeholder="Enter description" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="amount" class="form-label">Amount</label>
-                            <input type="number" id="amount" class="form-control" placeholder="Enter amount" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputDate" class="form-label">Due Date</label>
-                            <input type="date" id="inputDate" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Budget</button>
-                    </form>
-                </div>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#">HISTORY</a></li>
+                <li><a href="public/budget.html">BUDGET TRACKER</a></li>
+                <li><a href="#">SALES TRACKER</a></li>
+            </ul>
+            <!-- Special Reminder Box -->
+            <div class="reminder-box">
+                <h3>Reminder</h3>
+                <textarea placeholder="Enter your reminder here..."></textarea>
             </div>
-        </div>
-    </div>
+        </nav>        
 
-    <!-- Modal for Editing a Budget -->
-    <div class="modal fade" id="editBudgetModal" tabindex="-1" aria-labelledby="editBudgetModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editBudgetModalLabel">Edit Budget</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editBudgetForm">
-                        <!-- Edit Budget Form fields -->
-                        <div class="mb-3">
-                            <label for="editCategory" class="form-label">Category</label>
-                            <select id="editCategory" class="form-select" required>
-                                <option value="FIXED EXPENSES (DUES)">FIXED EXPENSES (DUES)</option>
-                                <option value="VARIABLE EXPENSES">VARIABLE EXPENSES</option>
-                                <option value="PAYABLES">PAYABLES</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editDescription" class="form-label">Description</label>
-                            <input type="text" id="editDescription" class="form-control" placeholder="Enter description" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAmount" class="form-label">Amount</label>
-                            <input type="number" id="editAmount" class="form-control" placeholder="Enter amount" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editInputDate" class="form-label">Due Date</label>
-                            <input type="date" id="editInputDate" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update Budget</button>
-                    </form>
-                </div>
+        <main>
+            <div class="charts-group">
+                <!-- sale chart -->
+                <section class="saleChart">
+                    <div class="chart-container" id="sale-summary-chart">
+                        <h2>SALES TRACKER</h2>
+                        <canvas id="sale-summary-pie-chart"></canvas>
+                    </div>
+                </section>
+                <!-- budget chart -->
+                <section class="budgetChart">
+                    <div class="chart-container" id="budget-summary-chart">
+                        <h2>BUDGET TRACKER</h2>
+                        <canvas id="budget-summary-pie-chart"></canvas>
+                    </div>
+                </section>
             </div>
-        </div>
+            <!-- monthly chart -->
+            <section class="monthlyChart">
+                <div class="chart-container" id="monthly-summary-chart">
+                    <h2>MONTHLY SUMMARY</h2>
+                    <canvas id="monthly-summary-bar-chart"></canvas>
+                </div>
+            </section>
+        </main>        
     </div>
 
-    <!-- Success Modal (unchanged) -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="successModalLabel">Success!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p id="modalMessage">Your changes have been saved successfully!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2024 Financial Tracker</p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="./charts/saleChart.js"></script>
+    <script src="./charts/budgetChart.js"></script>
+    <script src="./charts/monthlyChart.js"></script>
+    <script src="./js/reminder.js"></script>
+    <script src="./js/header.js"></script>
 </body>
 </html>
