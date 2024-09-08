@@ -17,6 +17,14 @@ body {
 
 h2 {
     text-align: center;
+    color: white;
+    background-color: #DB3D3D;
+}
+
+.addNewBudget{
+    background-color: #694949;
+    color: white;
+    font-weight: bold;
 }
 
 .filter {
@@ -25,10 +33,60 @@ h2 {
     margin-bottom: 20px;
 }
 
+.table tfoot td {
+    font-weight: bold;
+    border-top: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.text-end {
+    text-align: right;
+}
+
+/* Ensure the input fields match the table layout */
+table input[type="number"] {
+    width: 100%; /* Make input fill the width of the cell */
+    height: 50px; /* Make input fill the height of the cell */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding: 0.25rem; /* Adjust padding as needed */
+    border: none; /* Match border color with the rest of the table */
+    border-radius: 0.25rem; /* Rounded corners to match table style */
+    font-size: 1rem; /* Adjust font size to match other text in the table */
+    text-align: center;
+}
+
+table input[type="number"]:focus {
+    outline: none; /* Remove the default focus outline */
+    border: none; /* Ensure no border on focus */
+}
+
+/* Ensure table has consistent styling */
+.table {
+    width: 100%; /* Ensure table uses full available width */
+    border-collapse: collapse; /* Collapse borders between cells */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tfoot td.text-center {
+    text-align: center;
+}
+
+/* Ensure table input fields fit well within their cells */
+.budget-list-container table {
+    width: 100%; /* Ensure table fits within the container */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
 .filter-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.table th {
+    background-color: #694949;
+    color: white;
 }
 
 .table th, .table td {

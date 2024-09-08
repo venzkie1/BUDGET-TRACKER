@@ -1,80 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Budget Tracker</title>
+    <title>BUDGET BREAKDOWN</title>
 </head>
-
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4 contentTitle">Budget Tracker</h1>
-        <div class="d-flex flex-wrap shadow p-4" style="border-radius: 8px; background-color: white;">
-            <!-- Left: Budget Form -->
-            <div class="col-md-4 pe-3">
-                <form id="budgetForm">
-                    <div class="mb-3">
-                        <label for="category" class="form-label">Budget Category</label>
-                        <input type="text" id="category" class="form-control" placeholder="Enter budget category" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="amount" class="form-label">Amount</label>
-                        <input type="number" id="amount" class="form-control" placeholder="Enter amount" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputDate" class="form-label">Date</label>
-                        <input type="date" id="inputDate" class="form-control" required>
-                    </div>            
-                    <div class="mb-3">
-                        <label for="inputtedBy" class="form-label" id="inputtedByLabel">Inserted by:</label>
-                        <input type="text" id="inputtedBy" class="form-control" placeholder="Enter Name" required>
-                    </div>                    
-                    <button type="submit" class="btn btn-primary">Add Budget</button>
-                </form>
+        <h1 class="mb-4 contentTitle">MONTHLY BUDGET BREAKDOWN</h1>
+
+        <!-- Button to open the modal -->
+        <!-- <div class="mb-3 d-flex justify-content-center"> -->
+            <button type="button" class="btn addNewBudget" data-bs-toggle="modal" data-bs-target="#budgetModal">
+                Add New Budget
+            </button>
+        <!-- </div> -->
+
+        <!-- Budget List -->
+        <div class="budget-list-container shadow p-4 mt-4" style="border-radius: 8px; background-color: white;">
+            <!-- Category Header -->
+            <div id="budgetList">
+                <!-- Budget items will be grouped by category here -->
             </div>
+        </div>
+    </div>
 
-            <!-- Right: Budget List -->
-            <div class="col-md-8 ps-3">
-                <h2>Budget List</h2>
-
-                <!-- Category Filter Dropdown -->
-                <div class="filter">
-                    <label for="categoryFilter" class="form-label">Filter</label>
-                    <select id="categoryFilter" class="form-select">
-                        <option value="">All</option>
-                    </select>
+    <!-- Modal for Budget Form -->
+    <div class="modal fade" id="budgetModal" tabindex="-1" aria-labelledby="budgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="budgetModalLabel">Add Budget</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-                <!-- Budget List Table -->
-                <div class="table-responsive budget-list-container" style="max-height: 250px; overflow-y: auto;">
-                    <table class="table table-bordered mt-3">
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Amount</th>
-                                <th>Date</th>
-                                <th>Inserted by</th>
-                                <th>Updated at</th>
-                                <th>Updated by</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="budgetTableBody">
-                            <!-- Budget items will be displayed here -->
-                        </tbody>
-                    </table>
-                </div>
-                <div class="d-flex justify-content-center totalAmount">
-                    <h4>Total Amount: <span id="totalAmount">0 PHP</span></h4>
+                <div class="modal-body">
+                    <!-- Budget Form (moved into modal) -->
+                    <form id="budgetForm">
+                        <div class="mb-3 categories">
+                            <label for="category" class="form-label">Category</label>
+                            <select id="category" class="form-select" required>
+                                <option value="FIXED EXPENSES (DUES)">FIXED EXPENSES (DUES)</option>
+                                <option value="VARIABLE EXPENSES">VARIABLE EXPENSES</option>
+                                <option value="PAYABLES">PAYABLES</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" id="description" class="form-control" placeholder="Enter description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" id="amount" class="form-control" placeholder="Enter amount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputDate" class="form-label">Due Date</label>
+                            <input type="date" id="inputDate" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Budget</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Success Modal (unchanged) -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -91,9 +82,8 @@
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-
 </html>
