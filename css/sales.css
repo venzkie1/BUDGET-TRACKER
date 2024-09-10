@@ -1,0 +1,83 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.addSale {
+    background-color: #694949;
+    color: white;
+    font-weight: bold;
+}
+
+.addSale:hover {
+    background-color: #694949;
+    color: white;
+}
+
+.contentTitle {
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: center;
+}
+
+.table tfoot.gray-background th{
+    background-color: #D1D1D1;
+    color: black;
+}
+
+/* Ensure table has consistent styling */
+.table {
+    width: 100%; /* Ensure table uses full available width */
+    border-collapse: collapse; /* Collapse borders between cells */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table tfoot td {
+    font-weight: bold;
+    border-top: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table th {
+    background-color: #694949;
+    color: white;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    max-width: 150px;
+    word-wrap: break-word; /* Ensures long words are broken into the next line */
+    white-space: normal; /* Allows text to wrap */
+}
+
+.table input[type="number"] {
+    width: 100%; /* Make input fill the width of the cell */
+    height: 50px; /* Make input fill the height of the cell */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding: 0.25rem; /* Adjust padding as needed */
+    border: none; /* Match border color with the rest of the table */
+    border-radius: 0.25rem; /* Rounded corners to match table style */
+    font-size: 1rem; /* Adjust font size to match other text in the table */
+    text-align: center;
+}
+
+.table input[type="number"]:focus {
+    outline: none; /* Remove the default focus outline */
+    border: none; /* Ensure no border on focus */
+}
+
+.table-responsive {
+    max-width: 100%; /* Ensure the table stays within the container */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
