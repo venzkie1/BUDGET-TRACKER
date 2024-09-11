@@ -4,13 +4,23 @@ body {
 
 .addSale {
     background-color: #694949;
+    outline: none;
     color: white;
     font-weight: bold;
 }
 
 .addSale:hover {
     background-color: #694949;
+    outline: none;
     color: white;
+    font-weight: bold;
+}
+
+.addSale:focus {
+    background-color: #694949;
+    outline: none;
+    color: white;
+    font-weight: bold;
 }
 
 .contentTitle {
@@ -24,6 +34,7 @@ body {
 .table tfoot.gray-background th{
     background-color: #D1D1D1;
     color: black;
+    width: 50px;
 }
 
 /* Ensure table has consistent styling */
@@ -80,4 +91,8 @@ body {
 
 .table-bordered td, .table-bordered th {
     border: 1px solid #dee2e6;
+}
+
+.text-end td {
+    background-color: #dee2e6;
 }

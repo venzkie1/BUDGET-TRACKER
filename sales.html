@@ -35,26 +35,13 @@
         <!-- Sales Table -->
         <div class="table-container shadow p-4 mt-4" style="border-radius: 8px; background-color: white;">
             <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Date</th>
-                            <th>Item</th>
-                            <th>Capital</th>
-                            <th>Quantity Sold</th>
-                            <th>Number of Items</th>
-                            <th>Selling Price</th>
-                            <th>Profit</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="salesTableBody">
-                        <!-- Existing static entry -->
-                    </tbody>
+                <table class="table table-bordered" id="salesTable">
+                    <!-- The table header and body will be dynamically inserted by JavaScript -->
+                    <tbody id="salesTableBody"></tbody>
                 </table>
             </div>
         </div>
-    </div>
+    </div>    
     
     <!-- Modal for Adding Sales -->
     <div class="modal fade" id="salesModal" tabindex="-1" aria-labelledby="salesModalLabel" aria-hidden="true">
