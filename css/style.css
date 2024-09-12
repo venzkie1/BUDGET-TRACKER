@@ -137,8 +137,13 @@ main {
     width: 50%;
 }
 
-#sale-summary-pie-chart, #budget-summary-pie-chart {
-    width: 300px;
+#sale-summary-bar-chart {
+    width: 500px;
+    margin: auto;
+}
+
+#budget-summary-pie-chart{
+    width: 500px;
     margin: auto;
 }
 

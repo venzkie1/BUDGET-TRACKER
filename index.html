@@ -29,13 +29,21 @@
 
         <main>
             <div class="charts-group">
-                <!-- sale chart -->
-                <section class="saleChart">
-                    <div class="chart-container" id="sale-summary-chart">
-                        <h2>SALES TRACKER</h2>
-                        <canvas id="sale-summary-pie-chart"></canvas>
-                    </div>
-                </section>
+                <div class="charts-group">
+                    <!-- sale chart -->
+                    <section class="saleChart">
+                        <div class="chart-container" id="sale-summary-chart">
+                            <h2>SALES TRACKER</h2>
+                            <div>
+                                <label for="itemFilter">Filter by Item:</label>
+                                <select id="itemFilter" class="form-select">
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                            </div>
+                            <canvas id="sale-summary-bar-chart"></canvas>
+                        </div>
+                    </section>
+                </div>
                 <!-- budget chart -->
                 <section class="budgetChart">
                     <div class="chart-container" id="budget-summary-chart">
@@ -51,7 +59,7 @@
                     <canvas id="monthly-summary-bar-chart"></canvas>
                 </div>
             </section>
-        </main>        
+        </main>
     </div>
 
     <footer>
